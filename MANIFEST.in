@@ -1,0 +1,4 @@
+global-exclude *.py[co]
+graft tests
+graft jsonparser
+include tests/schema/*.json tests/config/*.json

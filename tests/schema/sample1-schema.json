@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "address": {
+            "$ref": "sample2-schema.json"
+        }
+    }
+}

@@ -1,0 +1,4 @@
+{
+    "name": "sathya",
+    "address": "$include <sample2-cfg.json>"
+}
