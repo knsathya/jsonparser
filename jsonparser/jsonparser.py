@@ -268,8 +268,8 @@ class JSONParser(object):
         self.logger.info(json.dumps(self.schema, indent=indent, sort_keys=sort_keys,
                                     separators=sperators, ensure_ascii=ensure_ascii))
 
-    def dump_cfg(self, out_file=None, indent=4, sort_keys=False, sperators=(',', ': '),
-                 ensure_ascii=False, outfile=None):
+    def dump_cfg(self, outfile=None, indent=4, sort_keys=False, sperators=(',', ': '),
+                 ensure_ascii=False):
         out_cfg = json.dumps(self.data, indent=indent, sort_keys=sort_keys, separators=sperators,
                              ensure_ascii=ensure_ascii)
         if outfile is not None and isinstance(outfile, basestring):
