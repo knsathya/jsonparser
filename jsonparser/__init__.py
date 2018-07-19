@@ -16,4 +16,4 @@
 #
 #
 
-from jsonparser.jsonparser import JSONParser
+from jsonparser import JSONParser
