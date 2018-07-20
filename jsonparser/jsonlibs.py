@@ -24,6 +24,7 @@ from jsonschema.validators import validator_for
 from jsonmerge import merge
 import logging
 import collections
+import sys
 is_py2 = sys.version[0] == '2'
 # Make it work for Python 2+3 and with Unicode
 try:
