@@ -244,7 +244,7 @@ class JSONParser(object):
 
         resolver = None
 
-        Validator = validator_for(self.schema, dict)
+        Validator = validator_for(self.schema)
 
         if ref_resolver:
             resolver = RefResolver('file://' + os.path.abspath(schema_dir) + '/', self.schema)
