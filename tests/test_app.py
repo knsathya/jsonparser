@@ -30,8 +30,8 @@ logger.setLevel(logging.INFO)
 
 class DeviceTest(unittest.TestCase):
     def test_parser(self):
-        schema = resource_filename('tests','schema/sample1-schema.json').replace('\\',"/")
-        cfg = resource_filename('tests', 'config/sample1-cfg.json').replace('\\', "/")
+        schema = resource_filename('tests','schema/sample1-schema.json')
+        cfg = resource_filename('tests', 'config/sample1-cfg.json')
         obj = jsonparser.JSONParser(schema, cfg,
                                     extend_defaults= True, ref_resolver=True, parse_include=True,
                                     schema_dir=os.path.dirname(schema),

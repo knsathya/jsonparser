@@ -20,6 +20,7 @@ import json
 import os
 import re
 from jsonschema import validators, validate, Draft4Validator, RefResolver
+from jsonschema.validators import validator_for
 from jsonmerge import merge
 import logging
 import collections
@@ -243,13 +244,15 @@ class JSONParser(object):
 
         resolver = None
 
+        Validator = validator_for(self.schema, dict)
+
         if ref_resolver:
             resolver = RefResolver('file://' + os.path.abspath(schema_dir) + '/', self.schema)
 
         if extend_defaults is True:
-            self._extend_with_default(Draft4Validator)(self.schema, resolver=resolver).validate(data)
+            self._extend_with_default(Validator)(self.schema, resolver=resolver).validate(data)
         else:
-            Draft4Validator(schema, resolver=resolver).validate(data)
+            Validator(self.schema, resolver=resolver).validate(data)
 
 
         self.data = data
