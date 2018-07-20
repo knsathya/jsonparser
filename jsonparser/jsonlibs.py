@@ -24,7 +24,7 @@ from jsonschema.validators import validator_for
 from jsonmerge import merge
 import logging
 import collections
-
+is_py2 = sys.version[0] == '2'
 # Make it work for Python 2+3 and with Unicode
 try:
     to_unicode = unicode
@@ -77,8 +77,12 @@ class JSONParser(object):
         pattern = re.compile(r'(\${(.*)})')
 
         if isinstance(data, collections.Mapping):
-            for key, value in data.iteritems():
-                data[key] = self._sub_env(value, env_opt)
+            if is_py2:
+                for key, value in data.iteritems():
+                    data[key] = self._sub_env(value, env_opt)
+            else:
+                for key, value in data.items():
+                    data[key] = self._sub_env(value, env_opt)
         elif isinstance(data, (list, tuple)):
             for index, value in enumerate(data):
                 data[index] = self._sub_env(value, env_opt)
