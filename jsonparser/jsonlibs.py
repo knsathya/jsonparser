@@ -87,7 +87,7 @@ class JSONParser(object):
         elif isinstance(data, (list, tuple)):
             for index, value in enumerate(data):
                 data[index] = self._sub_env(value, env_opt)
-        elif isinstance(data, (str, unicode)):
+        elif isinstance(data, (str, to_unicode)):
             replaced = pattern.sub(lookup, data)
             if replaced is not None:
                 return replaced
@@ -139,7 +139,7 @@ class JSONParser(object):
         elif isinstance(data, (list, tuple)):
             for index, value in enumerate(data):
                 data[index] = self._sub_include(pattern, in_file, value, cfg_dir)
-        elif isinstance(data, (str, unicode)):
+        elif isinstance(data, (str, to_unicode)):
             replaced = pattern_match(data)
             if replaced is not None:
                 return replaced
@@ -159,7 +159,7 @@ class JSONParser(object):
 
         self.logger.debug("Json input type %s value: %s", type(json_in), json_in if type(json_in) is str else "...")
 
-        if type(json_in) == str or type(json_in) == unicode:
+        if type(json_in) == str or type(json_in) == to_unicode:
             if os.path.exists(os.path.abspath(json_in)):
                 with open(json_in) as data_file:
                     self.logger.debug("Reading %s file content", json_in)
