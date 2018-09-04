@@ -134,7 +134,7 @@ class JSONParser(object):
                 return data
 
         if isinstance(data, collections.Mapping):
-            for key, value in data.iteritems():
+            for key, value in data.items():
                 data[key] = self._sub_include(pattern, in_file, value, cfg_dir)
         elif isinstance(data, (list, tuple)):
             for index, value in enumerate(data):
