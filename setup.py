@@ -43,7 +43,7 @@ setup(name='jsonparser',
       license='GPLv2',
       packages=['jsonparser'],
       install_requires=[
-          'jsonschema',
+          'jsonschema<3.0.0',
           'jsonmerge'
       ],
       test_suite='tests',
